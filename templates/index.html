@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts</title>
+</head>
+<body>
+    <h1>Blog Posts</h1>
+
+    {% for post in blog_posts %}
+        <div>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+            <p><strong>Author:</strong> {{ post.author }}</p>
+
+            <!-- Form to update the post -->
+            <form action="/update/{{ post.id }}" method="POST">
+                <button type="submit">Update Post</button>
+            </form>
+
+            <!-- Form to delete the post -->
+            <form action="/delete/{{ post.id }}" method="POST">
+                <button type="submit">Delete Post</button>
+            </form>
+        </div>
+        <hr>
+    {% else %}
+        <p>No blog posts available.</p>
+    {% endfor %}
+</body>
+</html>
