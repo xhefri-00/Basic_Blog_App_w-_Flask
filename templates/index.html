@@ -8,6 +8,11 @@
 <body>
     <h1>Blog Posts</h1>
 
+    <!-- Add Post Button -->
+    <a href="{{ url_for('add') }}">
+        <button type="button">Add New Post</button>
+    </a>
+
     {% for post in blog_posts %}
         <div>
             <h2>{{ post.title }}</h2>
